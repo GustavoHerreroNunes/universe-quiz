@@ -6,7 +6,7 @@ import GitHubCorner from '../GithubCorner';
 import Logo from '../Logo';
 import Widget from '../Widget';
 
-export const Container = styled.div`
+const Container = styled.div`
   width: 100%;
   max-width: 350px;
   padding-top: 45px;
