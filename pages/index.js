@@ -3,8 +3,18 @@ import { useRouter } from 'next/router';
 import db from '../db.json';
 import PageDefault from '../src/components/PageDefault'
 import Widget from '../src/components/Widget';
+import Button from '../src/components/Button';
 
 const React = require('react');
+
+export const InputText = styled.input`
+  width: 100%;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 3px;
+  padding: 10px;
+  color: white;
+  background-color: inherit;
+`;
 
 /* Componente que representa a página */
 export default function Home() {
@@ -29,7 +39,7 @@ export default function Home() {
               console.log("Deu certo meu bom (o envio das infos)"); /**/
             }}
             >
-              <input
+              <InputText
               type="text"
               
               placeholder="Insira seu nome"
@@ -40,9 +50,9 @@ export default function Home() {
               />
               <br />
               <br />
-              <button type="submit" disabled={name.length === 0}> 
-                Jogar
-              </button>
+              <Button type="submit" disabled={name.length === 0}> 
+                JOGAR
+              </Button>
             </form>
           </Widget.Content>
         </Widget>
