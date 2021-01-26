@@ -1,9 +1,10 @@
 import React from 'react';
+import PageDefault from '../src/components/PageDefault';
 
 export default function QuizPage() {
   return (
-    <div>
+    <PageDefault>
       Página de Quiz
-    </div>
+    </PageDefault>
   );
 }

@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import db from '../db.json';
-import Background from '../src/components/Background';
-import Logo from '../src/components/Logo';
+import PageDefault from '../src/components/PageDefault'
 import Widget from '../src/components/Widget';
-import GithubCorner from '../src/components/GithubCorner';
-import Footer from '../src/components/Footer';
 
 const React = require('react');
 
@@ -28,11 +25,8 @@ export default function Home() {
   const [name, setName] = React.useState('');
 
   return (
-    <Background backgroundImage={db.bg}>
-      <Container>
-        <Logo />
-
-        <Widget>
+    <PageDefault>
+      <Widget>
           <Widget.Header>
             <h1>{db.title}</h1>
           </Widget.Header>
@@ -73,12 +67,6 @@ export default function Home() {
             <p>www.aindanenhuma.com.:)</p>
           </Widget.Content>
         </Widget>
-
-        <Footer />
-
-      </Container>
-
-      <GithubCorner projectUrl="https://github.com/GustavoHerreroNunes/universe-quiz" />
-    </Background>
+    </PageDefault>
   );
 }
