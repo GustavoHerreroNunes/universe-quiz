@@ -24,8 +24,6 @@ export default function Home() {
   return(
     <Background backgroundImage={db.bg}>
       <Container>
-        <GithubCorner />
-
         <Logo />
 
         <Widget>
@@ -49,6 +47,8 @@ export default function Home() {
         <Footer />
           
       </Container>
+      
+      <GithubCorner projectUrl="https://github.com/GustavoHerreroNunes/universe-quiz" />
     </Background>
   );
 }
