@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Button = styled.button`
     width: 100%;
     border: none;
-    border-radius: 3px;
+    border-radius: ${({ theme }) => theme.borderRadius};
     padding: 8px;
     color: white;
     font-weight: bold;
