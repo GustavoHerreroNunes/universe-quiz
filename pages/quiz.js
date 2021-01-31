@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Head from 'next/head';
 import db from '../db.json';
 import explicaResp from '../explicaResp.json';
 import { useRouter } from 'next/router';
