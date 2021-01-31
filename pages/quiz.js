@@ -22,7 +22,10 @@ function LoadingWidget() {
   );
 }
 
-function ResultWidget(){
+function ResultWidget({
+  results,
+  questionsNumber
+}){
   return(
     <Widget>
       <Widget.Header>
@@ -31,6 +34,25 @@ function ResultWidget(){
 
       <Widget.Content>
         <h2>Chegamos ao Destino...</h2>
+        <p>Você acertou {results.reduce((somatoriaAtual, resultAtual) => {
+          const isRight = resultAtual;
+          if(isRight){
+            return somatoriaAtual + 1;
+          }
+          return somatoriaAtual;
+        })}
+        /{questionsNumber} questões</p>
+        <ul>
+          {results.map((result, resultIndex) => (
+            <li key={`result___${resultIndex}`}>
+              Questão {resultIndex+1}:{' '}
+              {result 
+                ?'Acertou' 
+                :'Errou'
+              }
+            </li>
+          ))}
+        </ul>
       </Widget.Content>
     </Widget>
   );
@@ -40,10 +62,14 @@ function QuizWidget({
   question,
   questionIndex,
   questionsNumber,
+  addResult,
   onSubmit
 }){
   const questionId = `question_${questionIndex}`;
-  const [isResp, setIsResp] = React.useState('');
+  const [selectedAltern, setSelectedAltern] = React.useState(undefined);
+  const [isSubmited, setIsSubmited] = React.useState(false);
+  const isCorrect = selectedAltern === question.answer;
+  const hasSelectedAltern = selectedAltern !== undefined;
 
   return(
     <Widget>
@@ -57,7 +83,13 @@ function QuizWidget({
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              onSubmit();
+              setIsSubmited(true);
+              setTimeout(() => {
+                addResult(isCorrect);
+                onSubmit();
+                setIsSubmited(false);
+                setSelectedAltern(undefined);
+              }, 1.5* 1000)
             }}
           >
             <h2>{question.title}</h2>
@@ -67,13 +99,17 @@ function QuizWidget({
               const alternativeId = `alternative_${alternativeIndex}`;
 
               return(
-                <Widget.Topic as="label" htmlFor={alternativeId}>
+                <Widget.Topic 
+                  as="label"
+                  htmlFor={alternativeId}
+                  key={alternativeId}  
+                  onChange={() => setSelectedAltern(alternativeIndex)}
+                >
                   <input
                     /* style={{display: 'none'}}*/ 
                     type="radio"
                     id={alternativeId}
                     name={questionId}
-                    value={alternative}
                   />
 
                   {alternative}
@@ -81,9 +117,12 @@ function QuizWidget({
               );
             })}
 
-            <Button >
+            <Button type="submit" disabled={!hasSelectedAltern}>
               Confirmar
             </Button>
+            {(isSubmited && isCorrect) && <h4>Você Acertou :D</h4>}
+            {(isSubmited && !isCorrect) && <h4>Você Errou :(</h4>}
+
           </form>
         </Widget.Content>
 
@@ -101,9 +140,17 @@ export default function QuizPage() {
   const router = useRouter();
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [results, setResults] = React.useState([]);
   const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
   const questionsNumber = db.questions.length;
+
+  function addResult(result){
+    setResults([
+      ...results,
+      result
+    ]);
+  }
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -133,9 +180,13 @@ export default function QuizPage() {
           questionIndex={questionIndex}
           questionsNumber={questionsNumber} 
           onSubmit={handleSubmitQuiz}
+          addResult={addResult}
         />
       }
-      {screenState == screenStates.RESULT && <ResultWidget />}
+      {screenState == screenStates.RESULT && 
+        <ResultWidget 
+          results={results} 
+          questionsNumber={questionsNumber} />}
     </PageDefault>
   );
 }
