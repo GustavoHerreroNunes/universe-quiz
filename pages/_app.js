@@ -32,9 +32,23 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Universe Quiz</title>
+        {/* <title>Universe Quiz</title> */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+        
+        <meta property="og:locale" content="pt_BR" />
+
+        <meta property="og:site_name" content="Universe Quiz" />
+
+        <meta property="og:description" content="Venha testar seus conhecimentos sobre os mistérios do Universo" />
+        
+        <meta property="og:image" content="https://images3.alphacoders.com/127/127957.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1920" />
+        <meta property="og:image:height" content="1080" />
+
+        <meta property="og:type" content="website" />
+
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />

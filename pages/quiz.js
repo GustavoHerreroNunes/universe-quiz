@@ -121,6 +121,9 @@ export default function QuizPage() {
 
   return (
     <PageDefault>
+      <Head>
+        <meta property="og:title" content="Perguntas" />
+      </Head>
 
       {screenState === screenStates.LOADING && <LoadingWidget />}
       {screenState === screenStates.QUIZ && 

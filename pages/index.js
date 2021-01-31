@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import db from '../db.json';
 import PageDefault from '../src/components/PageDefault'
@@ -15,6 +16,9 @@ export default function Home() {
 
   return (
     <PageDefault>
+      <Head>
+        <meta property="og:title" content="Home" />
+      </Head>
       <Widget>
           <Widget.Header>
             <h1>{db.title}</h1>
