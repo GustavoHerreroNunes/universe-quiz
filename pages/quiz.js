@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import db from '../db.json';
+import explicaResp from '../explicaResp.json';
 import { useRouter } from 'next/router';
 import Widget from '../src/components/Widget';
 import Button from '../src/components/Button';
@@ -41,6 +42,8 @@ function QuizWidget({
   onSubmit
 }){
   const questionId = `question_${questionIndex}`;
+  const [isResp, setIsResp] = React.useState('');
+
   return(
     <Widget>
         <Widget.Header>
@@ -69,6 +72,7 @@ function QuizWidget({
                     type="radio"
                     id={alternativeId}
                     name={questionId}
+                    value={alternative}
                   />
 
                   {alternative}
@@ -76,7 +80,7 @@ function QuizWidget({
               );
             })}
 
-            <Button>
+            <Button >
               Confirmar
             </Button>
           </form>

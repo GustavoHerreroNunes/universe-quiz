@@ -4,25 +4,75 @@
   "description": "Embarque em nossa nave e venha testar seus conhecimentos sobre os mistérios do universo",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
+      "image": "https://olhardigital.com.br/wp-content/uploads/2020/12/shutterstock_1724343382.jpg",
+      "title": "Quantos satélites naturais Marte têm a mais do que a Terra?",
+      "description": "Vamos ver se você conhece a vizinhança...",
       "answer": 2,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "2",
+        "3",
+        "1",
+        "Nenhum"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
-      "answer": 0,
+      "image": "https://gizmodo.uol.com.br/wp-content/blogs.dir/8/files/2020/01/xwffoz5dkvg54r3isv7r-800x449.jpg",
+      "title": "Qual é a estrela mais próxima da Terra?",
+      "description": "Brilha, brilha, estrelinha...",
+      "answer": 3,
       "alternatives": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
+        "Proxima Centauri",
+        "Betelgeuse",
+        "M5-47b",
+        "Nenhuma da anteriores"
+      ]
+    },
+    {
+      "image": "https://www.infoescola.com/wp-content/uploads/2009/08/via-lactea-da-terra-299633162.jpg",
+      "title": "Qual é o formato da Via Láctea?",
+      "description": "Seria bom se desse pra olhar ela por fora...",
+      "answer": 1,
+      "alternatives": [
+        "Irregular",
+        "Espiral",
+        "Hexagonal",
+        "Elíptica"
+      ]
+    },
+    {
+      "image": "https://super.abril.com.br/wp-content/uploads/2019/02/site_netuno.png",
+      "title": "O que é um planeta errante, ou interestelar?",
+      "description": "O que é, o que é...",
+      "answer": 3,
+      "alternatives": [
+        "Planeta de orbita irregular",
+        "Planeta que orbita um buraco negro",
+        "Planeta que orbita mais de 1 estrela",
+        "Planeta que não orbita nenhuma estrela"
+      ]
+    },
+    {
+      "image": "https://hypescience.com/wp-content/uploads/2010/07/supernova.jpg",
+      "title": "O que é uma Supernova?",
+      "description": "Você não ia querer ficar perto de uma...",
+      "answer": 1,
+      "alternatives": [
+        "Evento onde há o choque entre 2 buracos negros supermassivos",
+        "Evento em que uma estrela massiva 'morre', colapsando sobre si e causando uma imensa explosão",
+        "Evento em que 2 galáxias se fundem, formando uma 'nova' galáxia",
+        "Evento em que um galáxia 'morre', colapsando sobre si e causando uma imensa explosão"
+      ]
+    },
+    {
+      "image": "https://s2.glbimg.com/OQhSDstoHGNvKm0iak-dFgldeHE=/e.glbimg.com/og/ed/f/original/2019/04/10/buraco_negro.png",
+      "title": "Qual processo aconteceria se você, ou qualquer outra coisa, caísse em um buraco negro?",
+      "description": "Vish...",
+      "answer": 2,
+      "alternatives": [
+        "Teletransporte quântico",
+        "Hiper-gravitacionamento",
+        "Espaguetificação",
+        "Falecimento"
       ]
     }
   ],
