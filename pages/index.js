@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <PageDefault>
       <Head>
-        <meta property="og:title" content="Home" />
+        <meta property="og:title" content="Universe Quiz - Home" />
       </Head>
       <Widget>
           <Widget.Header>

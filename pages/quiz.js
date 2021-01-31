@@ -123,7 +123,7 @@ export default function QuizPage() {
   return (
     <PageDefault>
       <Head>
-        <meta property="og:title" content="Perguntas" />
+        <meta property="og:title" content="Universe Quiz - Perguntas" />
       </Head>
 
       {screenState === screenStates.LOADING && <LoadingWidget />}
