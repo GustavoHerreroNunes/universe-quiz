@@ -27,14 +27,14 @@ function ResultWidget({
   results,
   questionsNumber
 }){
+  const router = useRouter();
   return(
     <Widget>
       <Widget.Header>
-        Resultados
+      <h1>{`${router.query.name}, chegamos ao destino...`}</h1>
       </Widget.Header>
 
       <Widget.Content>
-        <h2>Chegamos ao Destino...</h2>
         <p>Você acertou {results.reduce((somatoriaAtual, resultAtual) => {
           const isRight = resultAtual;
           if(isRight){
@@ -136,7 +136,6 @@ const screenStates ={
 }
 
 export default function QuizPage() {
-  const router = useRouter();
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [results, setResults] = React.useState([]);
