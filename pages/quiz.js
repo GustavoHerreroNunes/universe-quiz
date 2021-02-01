@@ -4,9 +4,10 @@ import Head from 'next/head';
 import db from '../db.json';
 import explicaResp from '../explicaResp.json';
 import { useRouter } from 'next/router';
+import PageDefault from '../src/components/PageDefault';
 import Widget from '../src/components/Widget';
 import Button from '../src/components/Button';
-import PageDefault from '../src/components/PageDefault';
+import Form from '../src/components/Form';
 
 function LoadingWidget() {
   return (
@@ -80,7 +81,7 @@ function QuizWidget({
         <Widget.Image src={question.image} />
         
         <Widget.Content>
-          <form
+          <Form
             onSubmit={(event) => {
               event.preventDefault();
               setIsSubmited(true);
@@ -97,12 +98,16 @@ function QuizWidget({
 
             {question.alternatives.map((alternative, alternativeIndex) => {
               const alternativeId = `alternative_${alternativeIndex}`;
+              const isSelected = selectedAltern === alternativeIndex;
+              const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
 
               return(
                 <Widget.Topic 
                   as="label"
                   htmlFor={alternativeId}
                   key={alternativeId}  
+                  data-selected={isSelected}
+                  data-status={isSubmited && alternativeStatus}
                   onChange={() => setSelectedAltern(alternativeIndex)}
                 >
                   <input
@@ -123,7 +128,7 @@ function QuizWidget({
             {(isSubmited && isCorrect) && <h4>Você Acertou :D</h4>}
             {(isSubmited && !isCorrect) && <h4>Você Errou :(</h4>}
 
-          </form>
+          </Form>
         </Widget.Content>
 
       </Widget>
