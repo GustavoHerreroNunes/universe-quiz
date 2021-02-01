@@ -40,7 +40,7 @@ function ResultWidget({
           if(isRight){
             return somatoriaAtual + 1;
           }
-          return somatoriaAtual;
+          return somatoriaAtual + 0;
         })}
         /{questionsNumber} questões</p>
         <ul>
