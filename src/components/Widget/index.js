@@ -52,7 +52,7 @@ Widget.Image = styled.img`
   object-fit: cover;
 `;
 
-Widget.Topic = styled.a`
+const Topic = styled.a`
   outline: 0;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.contrastText};
@@ -69,5 +69,38 @@ Widget.Topic = styled.a`
     opacity: .5;
   }
 `;
+
+function DivTopic({
+  htmlFor,
+  key,
+  data_selected,
+  data_status,
+  onChange,
+  inputId,
+  inputName,
+  children
+}){
+  return(
+    <Topic
+      as="label"
+      htmlFor={htmlFor}
+      key={key}  
+      data-selected={data_selected}
+      data-status={data_status}
+      onChange={onChange}
+    >
+      <input 
+        style={{ display: 'none' }}
+        type="radio"
+        id={inputId}
+        name={inputName}
+      />
+
+      {children}
+    </Topic>
+  )
+}
+
+Widget.Topic = DivTopic;
 
 export default Widget;

@@ -103,20 +103,14 @@ function QuizWidget({
 
               return(
                 <Widget.Topic 
-                  as="label"
                   htmlFor={alternativeId}
                   key={alternativeId}  
-                  data-selected={isSelected}
-                  data-status={isSubmited && alternativeStatus}
+                  data_selected={isSelected}
+                  data_status={isSubmited && alternativeStatus}
                   onChange={() => setSelectedAltern(alternativeIndex)}
+                  inputId={alternativeId}
+                  inputName={questionId}
                 >
-                  <input
-                    /* style={{display: 'none'}}*/ 
-                    type="radio"
-                    id={alternativeId}
-                    name={questionId}
-                  />
-
                   {alternative}
                 </Widget.Topic>
               );
