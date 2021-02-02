@@ -6,6 +6,7 @@ import PageDefault from '../src/components/PageDefault'
 import Widget from '../src/components/Widget';
 import Input from '../src/components/Input';
 import Button from '../src/components/Button';
+import Link from '../src/components/Link';
 
 const React = require('react');
 
@@ -15,7 +16,7 @@ export default function Home() {
   const [name, setName] = React.useState('');
 
   return (
-    <PageDefault>
+    <PageDefault bg={db.bg}>
       <Head>
         <meta property="og:title" content="Universe Quiz - Home" />
       </Head>
@@ -59,7 +60,23 @@ export default function Home() {
           <Widget.Content>
             <h1>Outras Aventuras</h1>
 
-            <p>www.aindanenhuma.com.:)</p>
+            <ul>
+              {db.external.map((link) => {
+                const [project, devName] = link
+                  .replace(/\//g, '')
+                  .replace('https:', '')
+                  .replace('.vercel.app', '')
+                  .split('.')
+                ;
+                return(
+                  <li key={link}>
+                    <Widget.Topic as={Link} href={`/quiz/${project}___${devName}`}>
+                      {`${devName}/${project}`}
+                    </Widget.Topic>
+                  </li>
+                )
+              })}
+            </ul>
           </Widget.Content>
         </Widget>
     </PageDefault>

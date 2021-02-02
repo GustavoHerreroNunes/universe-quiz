@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
-import db from '../db.json';
-import explicaResp from '../explicaResp.json';
+import db from '../../db.json';
+import explicaResp from '../../explicaResp.json';
 import { useRouter } from 'next/router';
-import PageDefault from '../src/components/PageDefault';
-import Widget from '../src/components/Widget';
-import Button from '../src/components/Button';
-import Form from '../src/components/Form';
+import PageDefault from '../../src/components/PageDefault';
+import Widget from '../../src/components/Widget';
+import Button from '../../src/components/Button';
+import Form from '../../src/components/Form';
 
 function LoadingWidget() {
   return (
@@ -103,14 +103,19 @@ function QuizWidget({
 
               return(
                 <Widget.Topic 
+                  as="label"
                   htmlFor={alternativeId}
                   key={alternativeId}  
-                  data_selected={isSelected}
-                  data_status={isSubmited && alternativeStatus}
+                  data-selected={isSelected}
+                  data-status={isSubmited && alternativeStatus}
                   onChange={() => setSelectedAltern(alternativeIndex)}
-                  inputId={alternativeId}
-                  inputName={questionId}
                 >
+                  <input
+                    style={{ display: 'none'}}
+                    type="radio"
+                    id={alternativeId}
+                    name={questionId}
+                  />
                   {alternative}
                 </Widget.Topic>
               );
@@ -166,7 +171,7 @@ export default function QuizPage() {
   }
 
   return (
-    <PageDefault>
+    <PageDefault bg={db.bg}>
       <Head>
         <meta property="og:title" content="Universe Quiz - Perguntas" />
       </Head>

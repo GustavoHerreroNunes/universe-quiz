@@ -21,7 +21,7 @@ const Container = styled.div`
 
 export default function PeageDefault(props) {
   return (
-    <Background backgroundImage={db.bg}>
+    <Background backgroundImage={props.bg}>
       <Container>
         <Logo />
 
