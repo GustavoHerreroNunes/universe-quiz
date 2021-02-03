@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import explicaResp from '../../../explicaResp.json';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 import PageDefault from '../../components/PageDefault';
 import Widget from '../../components/Widget';
 import Button from '../../components/Button';
@@ -11,7 +12,16 @@ import BackLinkArrow from '../../components/BackLinkArrow';
 
 function LoadingWidget() {
   return (
-    <Widget>
+    <Widget
+      as={motion.section}
+      transition={{ delay:0.8, duration:0.5 }}
+      variants={{
+        hidden: { opacity:0, x:'-100%' },
+        visible: { opacity:1, x:'0' }
+      }}
+      initial="hidden"
+      animate="visible"
+    >
       <Widget.Header>
         Carregando
       </Widget.Header>
@@ -29,7 +39,16 @@ function ResultWidget({
 }){
   const router = useRouter();
   return(
-    <Widget>
+    <Widget
+      as={motion.section}
+      transition={{ delay:0.8, duration:0.5 }}
+      variants={{
+        hidden: { opacity:0, x:'-100%' },
+        visible: { opacity:1, x:'0' }
+      }}
+      initial="hidden"
+      animate="visible"
+    >
       <Widget.Header>
       <h1>{`${router.query.name}, chegamos ao destino...`}</h1>
       </Widget.Header>
@@ -73,7 +92,16 @@ function QuizWidget({
   const hasSelectedAltern = selectedAltern !== undefined;
 
   return(
-    <Widget>
+    <Widget
+      as={motion.section}
+      transition={{ delay:0.8, duration:0.5 }}
+      variants={{
+        hidden: { opacity:0, x:'-100%' },
+        visible: { opacity:1, x:'0' }
+      }}
+      initial="hidden"
+      animate="visible"
+    >
         <Widget.Header>
           <BackLinkArrow href="/" />
           <h3>{`Pergunta ${questionIndex + 1} de ${questionsNumber}`}</h3>
@@ -138,7 +166,7 @@ function QuizWidget({
 const screenStates ={
   LOADING: 'LOADING',
   QUIZ: 'QUIZ',
-  RESULT: 'REASULT'
+  RESULT: 'RESULT'
 }
 
 export default function QuizScreen({ db }) {
@@ -159,7 +187,7 @@ export default function QuizScreen({ db }) {
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 2.2 * 1000);
   }, []);
 
   function handleSubmitQuiz(){
