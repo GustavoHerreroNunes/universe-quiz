@@ -4,14 +4,9 @@ import QuizScreen from '../../src/screens/Quiz';
 
 export default function OutrasAventuras({ dbExterno }){
     return(
-        <div>
-            <ThemeProvider theme={dbExterno.theme}>
-                <QuizScreen db={dbExterno} />
-            </ThemeProvider>
-            <pre style={{ color: 'black' }}>
-                {JSON.stringify(dbExterno, null, 4)}
-            </pre>
-        </div>
+        <ThemeProvider theme={dbExterno.theme}>
+            <QuizScreen db={dbExterno} />
+        </ThemeProvider>
     );
 }
 
