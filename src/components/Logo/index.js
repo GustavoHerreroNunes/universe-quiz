@@ -1,11 +1,20 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import React from 'react';
 import PropTypes from 'prop-types';
 
 function LogoBase({ className }) {
   return (
-    <svg className={className} width="135" height="67" viewBox="0 0 135 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <motion.svg className={className} width="135" height="67" viewBox="0 0 135 67" fill="none" xmlns="http://www.w3.org/2000/svg"
+    transition={{ duration:0.5 }}
+      variants={{
+        hidden: { opacity:0, x:'-100%'},
+        visible: { opacity:1, x:'0' }
+      }}
+      initial="hidden"
+      animate="visible"
+    >
       <g clipPath="url(#clip0)">
         <mask id="path-1-outside-1" maskUnits="userSpaceOnUse" x="2" y="2" width="110" height="50" fill="black">
           <rect fill="white" x="2" y="2" width="110" height="50" />
@@ -25,7 +34,7 @@ function LogoBase({ className }) {
           <rect width="134.373" height="67" fill="white" />
         </clipPath>
       </defs>
-    </svg>
+    </motion.svg>
   );
 }
 

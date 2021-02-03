@@ -5,6 +5,7 @@ import Footer from '../Footer';
 import GitHubCorner from '../GithubCorner';
 import Logo from '../Logo';
 import Widget from '../Widget';
+import { motion } from 'framer-motion';
 
 const Container = styled.div`
   width: 100%;
@@ -19,7 +20,7 @@ const Container = styled.div`
 
 `;
 
-export default function PeageDefault(props) {
+export default function PageDefault(props) {
   return (
     <Background backgroundImage={props.bg}>
       <Container>
@@ -27,7 +28,16 @@ export default function PeageDefault(props) {
 
         {props.children}
         
-        <Footer />
+        <Footer
+          as={motion.footer}
+          transition={{ delay:1.2, duration:0.5 }}
+          variants={{
+            hidden: { opacity:0, x:'-100%' },
+            visible: { opacity:1, x:'0' }
+          }}
+          initial="hidden"
+          animate="visible"
+        />
 
       </Container>
 
