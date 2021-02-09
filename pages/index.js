@@ -80,21 +80,26 @@ export default function Home() {
             <h1>Outras Aventuras</h1>
 
             <ul>
-              {db.external.map((link) => {
-                const [project, devName] = link
-                  .replace(/\//g, '')
-                  .replace('https:', '')
-                  .replace('.vercel.app', '')
-                  .split('.')
-                ;
-                return(
-                  <li key={link}>
-                    <Widget.Topic as={Link} href={`/quiz/${project}___${devName}`}>
-                      {`${devName}/${project}`}
-                    </Widget.Topic>
-                  </li>
-                )
-              })}
+              {name.length != 0 
+                ? db.external.map((link) => {
+                  const [project, devName] = link
+                    .replace(/\//g, '')
+                    .replace('https:', '')
+                    .replace('.vercel.app', '')
+                    .split('.')
+                  ;
+                  return(
+                    <li key={link}>
+                      <Widget.Topic as={Link} href={`/quiz/${project}___${devName}?name=${name}`} disabled={name.length === 0}>
+                        {`${devName}/${project}`}
+                      </Widget.Topic>
+                    </li>
+                  )
+                })
+                : <Widget.Topic>
+                    Insira seu nome para ver novas aventuras
+                  </Widget.Topic>
+              }
             </ul>
           </Widget.Content>
         </Widget>
