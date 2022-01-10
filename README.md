@@ -14,4 +14,4 @@ Se você tem alguma ideia, sugestão, ou viu algum erro, você pode me contar [a
 
 <!---Links utilizados no documento-->
 
-[issues]: https://github.com/GustavoHerreroNunes/webLab/issues
+[issues]: https://github.com/GustavoHerreroNunes/universe-quiz/issues
